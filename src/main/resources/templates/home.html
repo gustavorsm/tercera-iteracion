@@ -260,6 +260,25 @@
                 <button onclick="show('table')">Table</button>
                 <button onclick="show('map')">Map</button>
             </li>
+            <script th:inline="javascript">
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: -16.1795, lng: -64.8531},
+                    zoom: 8
+                });
+                /*<![CDATA[*/
+                var restaurants = /*[[${restaurantsList}]]*/ 'default';
+                for (var i = 0; i < restaurants.length; i++) {
+                    var marker = new google.maps.Marker({
+                        position: {lat: restaurants[i].latitude, lng: restaurants[i].longitude},
+                        map: map,
+                        title: restaurants[i].name
+                    });
+                }
+                /*]]>*/
+            }
+
+        </script>
             <script>
                 function show(type) {
                     document.getElementById("showContent").value = type;

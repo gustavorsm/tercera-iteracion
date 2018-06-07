@@ -49,6 +49,8 @@ public class CommentServiceImpl implements CommentService {
             if(allComments.get(i).getUser().getId() == userId)
                 res.add(allComments.get(i));
         }
+        System.out.println("hola como estas");
+        System.out.println(res);
         return (Iterable<Comment>)res;
     }
 

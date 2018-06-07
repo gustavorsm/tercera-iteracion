@@ -22,5 +22,4 @@ public interface RestaurantService {
     Comment alreadyCommented(Integer userId, Integer restId);
 
     Integer getScore(Integer id);
-
 }
